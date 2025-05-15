@@ -32,12 +32,10 @@ jobs:
 
       - name: Install and Build Packages
         run: |
-          cd npm
           npm ci
           npm run build
 
       - run: |
-          cd npm
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
