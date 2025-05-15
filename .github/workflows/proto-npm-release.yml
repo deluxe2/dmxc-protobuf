@@ -6,6 +6,9 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: npm
     steps:
       - uses: actions/checkout@v3
         with:
@@ -22,6 +25,11 @@ jobs:
         with:
           version: "3.x"
 
+      - name: Configure NPM
+        run: |
+            echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> .npmrc
+            echo "always-auth: true" >> .npmrc
+
       - name: Install and Build Packages
         run: |
           cd npm
@@ -29,7 +37,6 @@ jobs:
           npm run build
 
       - run: |
-          cp .npmrc npm/.npmrc
           cd npm
           npm publish
         env:
