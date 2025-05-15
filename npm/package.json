@@ -1,5 +1,5 @@
 {
-  "name": "dmxc-protobuf",
+  "name": "@deluxe2/dmxc-protobuf",
   "version": "1.0.0",
   "description": "Protobuf specifications for DMXC 3",
   "scripts": {
