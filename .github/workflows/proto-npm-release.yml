@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: "22"
           registry-url: 'https://npm.pkg.github.com'
+          scope: '@deluxe2'
 
       - name: Install Protoc
         uses: arduino/setup-protoc@master
