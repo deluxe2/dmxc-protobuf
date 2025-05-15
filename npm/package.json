@@ -1,0 +1,20 @@
+{
+  "name": "dmxc-protobuf",
+  "version": "1.0.0",
+  "description": "Protobuf specifications for DMXC 3",
+  "scripts": {
+    "build": "./gen-source.sh && tsc"
+  },
+  "author": "Samuel Hufen",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-proto": "^2.7.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.3"
+  },
+  "files": [
+    "dist"
+  ]
+}

@@ -1,0 +1,36 @@
+name: Release NPM package
+on:
+  push:
+    tags:
+        - '**'
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: Install Protoc
+        uses: arduino/setup-protoc@master
+        with:
+          version: "3.x"
+
+      - name: Install and Build Packages
+        run: |
+          cd npm
+          npm ci
+          npm run build
+
+      - run: |
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      
