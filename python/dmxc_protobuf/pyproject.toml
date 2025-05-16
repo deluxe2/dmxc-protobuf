@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "dmxc_protobuf"
+version = "0.1.0"
+description = ""
+authors = ["Samuel Hufen <samuel@hufen.xyz>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+grpcio = "^1.71.0"
+
+[tool.poetry.group.dev.dependencies]
+grpcio-tools = {version = "^1.71.0"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
