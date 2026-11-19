@@ -32,3 +32,4 @@ jobs:
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: python/dmxc_protobuf/dist
+          skip-existing: true
