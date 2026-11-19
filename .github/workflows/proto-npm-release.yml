@@ -19,7 +19,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version: "26"
           registry-url: 'https://registry.npmjs.org'
 
       - uses: arduino/setup-protoc@v3
@@ -33,7 +33,7 @@ jobs:
           npm version --no-git-tag-version "${GITHUB_REF_NAME#v}"
           npm run build
 
+      # authenticates via OIDC (id-token: write) using the trusted publisher
+      # configured on npmjs.com — no NPM_TOKEN secret needed
       - name: Publish
         run: npm publish --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
